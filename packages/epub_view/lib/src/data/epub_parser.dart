@@ -81,6 +81,46 @@ ParseParagraphsResult parseParagraphs(
   return ParseParagraphsResult(paragraphs, chapterIndexes);
 }
 
+List<Pages> parsePages(List<EpubChapter> chapters, double pageSize) {
+  final List<Pages> pages = [];
+  List<dom.Element> currentPage = [];
+
+  for (final chapter in chapters) {
+    final document = EpubCfiReader().chapterDocument(chapter);
+    if (document != null) {
+      final chapterElements = convertDocumentToElements(document);
+      final remainingElements = [...chapterElements];
+
+      while (remainingElements.isNotEmpty) {
+        final element = remainingElements.removeAt(0);
+        if (currentPage.isEmpty ||
+            currentPage.fold<double>(
+                        0, (acc, elm) => acc + elm.outerHtml.length) +
+                    element.outerHtml.length <=
+                pageSize) {
+          currentPage.add(element);
+        } else {
+          pages.add(Pages(List.from(currentPage)));
+          currentPage.clear();
+          currentPage.add(element);
+        }
+      }
+    }
+  }
+
+  if (currentPage.isNotEmpty) {
+    pages.add(Pages(List.from(currentPage)));
+  }
+
+  return pages;
+}
+
+class Pages {
+  final List<dom.Element> elements;
+
+  Pages(this.elements);
+}
+
 class ParseParagraphsResult {
   ParseParagraphsResult(this.flatParagraphs, this.chapterIndexes);
 

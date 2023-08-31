@@ -32,6 +32,7 @@ class EpubView extends StatefulWidget {
       options: DefaultBuilderOptions(),
     ),
     this.shrinkWrap = false,
+    this.backgroundColor,
     Key? key,
   }) : super(key: key);
 
@@ -39,6 +40,7 @@ class EpubView extends StatefulWidget {
   final ExternalLinkPressed? onExternalLinkPressed;
   final bool shrinkWrap;
   final void Function(EpubChapterViewValue? value)? onChapterChanged;
+  final Color? backgroundColor;
 
   /// Called when a document is loaded
   final void Function(EpubBook document)? onDocumentLoaded;
@@ -57,8 +59,11 @@ class _EpubViewState extends State<EpubView> {
   Exception? _loadingError;
   ItemScrollController? _itemScrollController;
   ItemPositionsListener? _itemPositionListener;
+  final ScrollOffsetListener _scrollOffsetListener =
+      ScrollOffsetListener.create();
   List<EpubChapter> _chapters = [];
   List<Paragraph> _paragraphs = [];
+  List<Pages> _pages = [];
   EpubCfiReader? _epubCfiReader;
   EpubChapterViewValue? _currentValue;
   final _chapterIndexes = <int>[];
@@ -101,6 +106,7 @@ class _EpubViewState extends State<EpubView> {
       return true;
     }
     _chapters = parseChapters(_controller._document!);
+    _pages = parsePages(_chapters, MediaQuery.of(context).size.height);
     final parseParagraphsResult =
         parseParagraphs(_chapters, _controller._document!.Content);
     _paragraphs = parseParagraphsResult.flatParagraphs;
@@ -370,26 +376,38 @@ class _EpubViewState extends State<EpubView> {
     );
   }
 
+  // void _onScroll() {
+  //   // Print "YES" whenever the user scrolls
+  //   // print(_controller.generateEpubCfi());
+  // }
+
   Widget _buildLoaded(BuildContext context) {
-    return ScrollablePositionedList.builder(
-      shrinkWrap: widget.shrinkWrap,
-      initialScrollIndex: _epubCfiReader!.paragraphIndexByCfiFragment ?? 0,
-      itemCount: _paragraphs.length,
-      itemScrollController: _itemScrollController,
-      itemPositionsListener: _itemPositionListener,
-      itemBuilder: (BuildContext context, int index) {
-        return widget.builders.chapterBuilder(
-          context,
-          widget.builders,
-          widget.controller._document!,
-          _chapters,
-          _paragraphs,
-          index,
-          _getChapterIndexBy(positionIndex: index),
-          _getParagraphIndexBy(positionIndex: index),
-          _onLinkPressed,
-        );
-      },
+    return Container(
+      color: widget.backgroundColor,
+      child: ScrollablePositionedList.builder(
+        shrinkWrap: widget.shrinkWrap,
+        initialScrollIndex: _epubCfiReader!.paragraphIndexByCfiFragment ?? 0,
+        itemCount: _paragraphs.length,
+        itemScrollController: _itemScrollController,
+        itemPositionsListener: _itemPositionListener,
+        scrollOffsetListener: _scrollOffsetListener,
+        itemBuilder: (BuildContext context, int index) {
+          print('NUMBER OF PARAGRAPHS:  ' + _paragraphs.length.toString());
+          print('NUMBER OF PAGES:  ' + _pages.length.toString());
+          // _itemPositionListener!.itemPositions.addListener(_onScroll);
+          return widget.builders.chapterBuilder(
+            context,
+            widget.builders,
+            widget.controller._document!,
+            _chapters,
+            _paragraphs,
+            index,
+            _getChapterIndexBy(positionIndex: index),
+            _getParagraphIndexBy(positionIndex: index),
+            _onLinkPressed,
+          );
+        },
+      ),
     );
   }
 

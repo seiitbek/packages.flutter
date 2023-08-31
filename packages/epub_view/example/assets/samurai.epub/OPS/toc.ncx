@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="ru">
+<head>
+<meta name="dtb:uid" content="urn:uuid:f99d21bc-1aa0-11e5-ad6a-002590591dd6"/>
+<meta name="dtb:depth" content="3"/>
+<meta name="dtb:totalPageNumber" content="0"/>
+<meta name="dtb:maxPageNumber" content="0"/>
+</head>
+<docTitle><text>Самурай без меча</text></docTitle>
+<navMap>
+<navPoint playOrder="1" id="id1">
+<navLabel>
+<text>Предисловие</text>
+</navLabel>
+<content src="ch1-3.xhtml#id1"/>
+<navPoint playOrder="2" id="id2">
+<navLabel>
+<text>Самураи как образцовые лидеры</text>
+</navLabel>
+<content src="ch1-3.xhtml#id2"/>
+</navPoint>
+<navPoint playOrder="3" id="id3">
+<navLabel>
+<text>Краткая история самураев</text>
+</navLabel>
+<content src="ch1-3.xhtml#id3"/>
+</navPoint>
+<navPoint playOrder="4" id="id4">
+<navLabel>
+<text>Примечания к тексту</text>
+</navLabel>
+<content src="ch1-3.xhtml#id4"/>
+</navPoint>
+<navPoint playOrder="5" id="id5">
+<navLabel>
+<text>Примечания к переводу</text>
+</navLabel>
+<content src="ch1-3.xhtml#id5"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="6" id="id6">
+<navLabel>
+<text>1. Благодарность, упорный труд, решительность в действиях и преданность</text>
+</navLabel>
+<content src="ch1-4.xhtml#id6"/>
+<navPoint playOrder="7" id="id7">
+<navLabel>
+<text>Лидеры должны быть благодарными</text>
+</navLabel>
+<content src="ch1-4.xhtml#id7"/>
+</navPoint>
+<navPoint playOrder="8" id="id8">
+<navLabel>
+<text>Лидеры должны трудиться больше других</text>
+</navLabel>
+<content src="ch1-4.xhtml#id8"/>
+</navPoint>
+<navPoint playOrder="9" id="id9">
+<navLabel>
+<text>В критические моменты действуйте смело</text>
+</navLabel>
+<content src="ch1-4.xhtml#id9"/>
+</navPoint>
+<navPoint playOrder="10" id="id10">
+<navLabel>
+<text>Посвятите всего себя лидеру</text>
+</navLabel>
+<content src="ch1-4.xhtml#id10"/>
+</navPoint>
+<navPoint playOrder="11" id="id11">
+<navLabel>
+<text>Начальники, подчиненные и самураи</text>
+</navLabel>
+<content src="ch1-4.xhtml#id11"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="12" id="id12">
+<navLabel>
+<text>2. Как выбрать лидера и отличиться самому</text>
+</navLabel>
+<content src="ch1-5.xhtml#id12"/>
+<navPoint playOrder="13" id="id13">
+<navLabel>
+<text>Выбирайте дальновидного лидера</text>
+</navLabel>
+<content src="ch1-5.xhtml#id13"/>
+</navPoint>
+<navPoint playOrder="14" id="id14">
+<navLabel>
+<text>Бросайте все силы на выполнение текущего задания</text>
+</navLabel>
+<content src="ch1-5.xhtml#id14"/>
+</navPoint>
+<navPoint playOrder="15" id="id15">
+<navLabel>
+<text>Используйте свои природные способности</text>
+</navLabel>
+<content src="ch1-5.xhtml#id15"/>
+</navPoint>
+<navPoint playOrder="16" id="id16">
+<navLabel>
+<text>Подчиняйте свои интересы интересам лидера</text>
+</navLabel>
+<content src="ch1-5.xhtml#id16"/>
+</navPoint>
+<navPoint playOrder="17" id="id17">
+<navLabel>
+<text>Видéние и выбор</text>
+</navLabel>
+<content src="ch1-5.xhtml#id17"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="18" id="id18">
+<navLabel>
+<text>3. Как совершить невозможное</text>
+</navLabel>
+<content src="ch1-6.xhtml#id18"/>
+<navPoint playOrder="19" id="id19">
+<navLabel>
+<text>Подходите к каждому заданию с непреклонной решимостью</text>
+</navLabel>
+<content src="ch1-6.xhtml#id19"/>
+</navPoint>
+<navPoint playOrder="20" id="id20">
+<navLabel>
+<text>Будьте лидером, а не начальником</text>
+</navLabel>
+<content src="ch1-7.xhtml#id20"/>
+</navPoint>
+<navPoint playOrder="21" id="id21">
+<navLabel>
+<text>Расширяйте сеть личных знакомств</text>
+</navLabel>
+<content src="ch1-7.xhtml#id21"/>
+</navPoint>
+<navPoint playOrder="22" id="id22">
+<navLabel>
+<text>Готовьтесь тщательно, действуйте решительно</text>
+</navLabel>
+<content src="ch1-7.xhtml#id22"/>
+</navPoint>
+<navPoint playOrder="23" id="id23">
+<navLabel>
+<text>Превращайте недостатки в достоинства</text>
+</navLabel>
+<content src="ch1-7.xhtml#id23"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="24" id="id24">
+<navLabel>
+<text>4. Как действовать в критической ситуации</text>
+</navLabel>
+<content src="ch1-8.xhtml#id24"/>
+<navPoint playOrder="25" id="id25">
+<navLabel>
+<text>Рискуйте всем, чтобы выиграть все</text>
+</navLabel>
+<content src="ch1-8.xhtml#id25"/>
+</navPoint>
+<navPoint playOrder="26" id="id26">
+<navLabel>
+<text>Первым беритесь за дело, чтобы первым закончить</text>
+</navLabel>
+<content src="ch1-8.xhtml#id26"/>
+</navPoint>
+<navPoint playOrder="27" id="id27">
+<navLabel>
+<text>Убедительно мотивируйте свои действия</text>
+</navLabel>
+<content src="ch1-8.xhtml#id27"/>
+</navPoint>
+<navPoint playOrder="28" id="id28">
+<navLabel>
+<text>Обращайте невезение в удачу</text>
+</navLabel>
+<content src="ch1-8.xhtml#id28"/>
+</navPoint>
+<navPoint playOrder="29" id="id29">
+<navLabel>
+<text>Подавляйте страх</text>
+</navLabel>
+<content src="ch1-8.xhtml#id29"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="30" id="id30">
+<navLabel>
+<text>5. Переговоры и дипломатия</text>
+</navLabel>
+<content src="ch1-9.xhtml#id30"/>
+<navPoint playOrder="31" id="id31">
+<navLabel>
+<text>Чтобы получить, нужно сначала дать</text>
+</navLabel>
+<content src="ch1-9.xhtml#id31"/>
+</navPoint>
+<navPoint playOrder="32" id="id32">
+<navLabel>
+<text>Прощайте других</text>
+</navLabel>
+<content src="ch1-9.xhtml#id32"/>
+</navPoint>
+<navPoint playOrder="33" id="id33">
+<navLabel>
+<text>Чтобы завоевать доверие, доверяйте другим</text>
+</navLabel>
+<content src="ch1-9.xhtml#id33"/>
+</navPoint>
+<navPoint playOrder="34" id="id34">
+<navLabel>
+<text>Формируйте общественное мнение</text>
+</navLabel>
+<content src="ch1-9.xhtml#id34"/>
+</navPoint>
+<navPoint playOrder="35" id="id35">
+<navLabel>
+<text>Выполняйте обещания</text>
+</navLabel>
+<content src="ch1-9.xhtml#id35"/>
+</navPoint>
+<navPoint playOrder="36" id="id36">
+<navLabel>
+<text>Конец века войн</text>
+</navLabel>
+<content src="ch1-9.xhtml#id36"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="37" id="id37">
+<navLabel>
+<text>6. Как мотивировать людей</text>
+</navLabel>
+<content src="ch1-10.xhtml#id37"/>
+<navPoint playOrder="38" id="id38">
+<navLabel>
+<text>Начинайте сражение только после того, как создадите условия для победы</text>
+</navLabel>
+<content src="ch1-10.xhtml#id38"/>
+</navPoint>
+<navPoint playOrder="39" id="id39">
+<navLabel>
+<text>Обращайтесь с последователями как с членами семьи</text>
+</navLabel>
+<content src="ch1-10.xhtml#id39"/>
+</navPoint>
+<navPoint playOrder="40" id="id40">
+<navLabel>
+<text>Верность можно завоевать, но нельзя купить</text>
+</navLabel>
+<content src="ch1-10.xhtml#id40"/>
+</navPoint>
+<navPoint playOrder="41" id="id41">
+<navLabel>
+<text>Прощайте мелкие проступки</text>
+</navLabel>
+<content src="ch1-10.xhtml#id41"/>
+</navPoint>
+<navPoint playOrder="42" id="id42">
+<navLabel>
+<text>Смиряйте гордыню</text>
+</navLabel>
+<content src="ch1-10.xhtml#id42"/>
+</navPoint>
+<navPoint playOrder="43" id="id43">
+<navLabel>
+<text>Учитесь у своих последователей</text>
+</navLabel>
+<content src="ch1-10.xhtml#id43"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="44" id="id44">
+<navLabel>
+<text>7. Как награждать последователей</text>
+</navLabel>
+<content src="ch1-11.xhtml#id44"/>
+<navPoint playOrder="45" id="id45">
+<navLabel>
+<text>Ставьте ясные цели</text>
+</navLabel>
+<content src="ch1-11.xhtml#id45"/>
+</navPoint>
+<navPoint playOrder="46" id="id46">
+<navLabel>
+<text>Поощряйте людей при каждой возможности</text>
+</navLabel>
+<content src="ch1-11.xhtml#id46"/>
+</navPoint>
+<navPoint playOrder="47" id="id47">
+<navLabel>
+<text>Хорошо награждайте тех, кто хорошо служит</text>
+</navLabel>
+<content src="ch1-11.xhtml#id47"/>
+</navPoint>
+<navPoint playOrder="48" id="id48">
+<navLabel>
+<text>Лично поощряйте отличившихся</text>
+</navLabel>
+<content src="ch1-11.xhtml#id48"/>
+</navPoint>
+<navPoint playOrder="49" id="id49">
+<navLabel>
+<text>Чтобы добиться преимущества, крепите единство</text>
+</navLabel>
+<content src="ch1-12.xhtml#id49"/>
+</navPoint>
+<navPoint playOrder="50" id="id50">
+<navLabel>
+<text>Работа в команде сама по себе награда</text>
+</navLabel>
+<content src="ch1-12.xhtml#id50"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="51" id="id51">
+<navLabel>
+<text>8. Что делать, когда нужен совет</text>
+</navLabel>
+<content src="ch1-13.xhtml#id51"/>
+<navPoint playOrder="52" id="id52">
+<navLabel>
+<text>Выбирайте в советники самых надежных друзей</text>
+</navLabel>
+<content src="ch1-13.xhtml#id52"/>
+</navPoint>
+<navPoint playOrder="53" id="id53">
+<navLabel>
+<text>Ищите совета у тех, кто не боится возражать</text>
+</navLabel>
+<content src="ch1-13.xhtml#id53"/>
+</navPoint>
+<navPoint playOrder="54" id="id54">
+<navLabel>
+<text>Берите на работу тех, кто умеет что-либо делать лучше вас</text>
+</navLabel>
+<content src="ch1-13.xhtml#id54"/>
+</navPoint>
+<navPoint playOrder="55" id="id55">
+<navLabel>
+<text>Принимайте во внимание советы жены или мужа</text>
+</navLabel>
+<content src="ch1-13.xhtml#id55"/>
+</navPoint>
+<navPoint playOrder="56" id="id56">
+<navLabel>
+<text>Миф о героическом лидерстве</text>
+</navLabel>
+<content src="ch1-13.xhtml#id56"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="57" id="id57">
+<navLabel>
+<text>9. Как построить организацию</text>
+</navLabel>
+<content src="ch1-14.xhtml#id57"/>
+<navPoint playOrder="58" id="id58">
+<navLabel>
+<text>Лучше искать, чем зазывать, ставить задачи, чем учить</text>
+</navLabel>
+<content src="ch1-14.xhtml#id58"/>
+</navPoint>
+<navPoint playOrder="59" id="id59">
+<navLabel>
+<text>Принимайте на работу лидеров, а не последователей</text>
+</navLabel>
+<content src="ch1-14.xhtml#id59"/>
+</navPoint>
+<navPoint playOrder="60" id="id60">
+<navLabel>
+<text>Создайте «мозговой трест»</text>
+</navLabel>
+<content src="ch1-14.xhtml#id60"/>
+</navPoint>
+<navPoint playOrder="61" id="id61">
+<navLabel>
+<text>Отдавайте должное обществу</text>
+</navLabel>
+<content src="ch1-14.xhtml#id61"/>
+</navPoint>
+<navPoint playOrder="62" id="id62">
+<navLabel>
+<text>Подводные камни власти</text>
+</navLabel>
+<content src="ch1-14.xhtml#id62"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="63" id="id63">
+<navLabel>
+<text>10. Предостережения лидерам</text>
+</navLabel>
+<content src="ch1-15.xhtml#id63"/>
+<navPoint playOrder="64" id="id64">
+<navLabel>
+<text>Не позволяйте себе лишнего</text>
+</navLabel>
+<content src="ch1-15.xhtml#id64"/>
+</navPoint>
+<navPoint playOrder="65" id="id65">
+<navLabel>
+<text>Опасайтесь тщеславия</text>
+</navLabel>
+<content src="ch1-15.xhtml#id65"/>
+</navPoint>
+<navPoint playOrder="66" id="id66">
+<navLabel>
+<text>Избегайте хвастовства</text>
+</navLabel>
+<content src="ch1-15.xhtml#id66"/>
+</navPoint>
+<navPoint playOrder="67" id="id67">
+<navLabel>
+<text>Управляйте решительно и не допускайте раздоров</text>
+</navLabel>
+<content src="ch1-15.xhtml#id67"/>
+</navPoint>
+<navPoint playOrder="68" id="id68">
+<navLabel>
+<text>Остерегайтесь ослепления всепоглощающими чувствами</text>
+</navLabel>
+<content src="ch1-15.xhtml#id68"/>
+</navPoint>
+<navPoint playOrder="69" id="id69">
+<navLabel>
+<text>Самурай без меча</text>
+</navLabel>
+<content src="ch1-15.xhtml#id69"/>
+</navPoint>
+</navPoint>
+<navPoint playOrder="70" id="id70">
+<navLabel>
+<text>Мудрые наставления самурая без меча</text>
+</navLabel>
+<content src="ch1-16.xhtml#id70"/>
+</navPoint>
+<navPoint playOrder="71" id="id71">
+<navLabel>
+<text>Хронология жизни Тоётоми Хидэёси</text>
+</navLabel>
+<content src="ch1-17.xhtml#id71"/>
+</navPoint>
+</navMap>
+</ncx>

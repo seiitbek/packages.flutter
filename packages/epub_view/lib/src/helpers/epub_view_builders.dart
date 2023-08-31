@@ -64,6 +64,7 @@ enum EpubViewLoadingState {
 }
 
 class DefaultBuilderOptions {
+  final Color backgroundColor;
   final Duration loaderSwitchDuration;
   final AnimatedSwitcherTransitionBuilder transitionBuilder;
   final EdgeInsetsGeometry chapterPadding;
@@ -71,6 +72,7 @@ class DefaultBuilderOptions {
   final TextStyle textStyle;
 
   const DefaultBuilderOptions({
+    this.backgroundColor = Colors.white,
     this.loaderSwitchDuration = const Duration(seconds: 1),
     this.transitionBuilder = DefaultBuilderOptions._transitionBuilder,
     this.chapterPadding = const EdgeInsets.all(8),

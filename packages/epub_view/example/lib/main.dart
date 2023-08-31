@@ -1,4 +1,5 @@
 import 'package:epub_view/epub_view.dart';
+import 'package:epub_view_example/second_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show SystemChrome, SystemUiOverlayStyle;
 
@@ -99,49 +100,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: EpubViewActualChapter(
-            controller: _epubReaderController,
-            builder: (chapterValue) => Text(
-              chapterValue?.chapter?.Title?.replaceAll('\n', '').trim() ?? '',
-              textAlign: TextAlign.start,
-            ),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.save_alt),
-              color: Colors.white,
-              onPressed: () => _showCurrentEpubCfi(context),
-            ),
-          ],
+          // appBar: AppBar(
+          //   title: EpubViewActualChapter(
+          //     controller: _epubReaderController,
+          //     builder: (chapterValue) => Text(
+          //       chapterValue?.chapter?.Title?.replaceAll('\n', '').trim() ?? '',
+          //       textAlign: TextAlign.start,
+          //     ),
+          //   ),
+          //   actions: <Widget>[
+          //     IconButton(
+          //       icon: const Icon(Icons.save_alt),
+          //       color: Colors.white,
+          //       onPressed: () => _showCurrentEpubCfi(context),
+          //     ),
+          //   ],
+          // ),
+          // drawer: Drawer(
+          //   child: EpubViewTableOfContents(controller: _epubReaderController),
+          // ),
+          body: Center(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const EpubPage()),
+            );
+          },
+          child: Text('TAP'),
         ),
-        drawer: Drawer(
-          child: EpubViewTableOfContents(controller: _epubReaderController),
-        ),
-        body: EpubView(
-          builders: EpubViewBuilders<DefaultBuilderOptions>(
-            options: const DefaultBuilderOptions(),
-            chapterDividerBuilder: (_) => const Divider(),
-          ),
-          controller: _epubReaderController,
-        ),
-      );
-
-  void _showCurrentEpubCfi(context) {
-    final cfi = _epubReaderController.generateEpubCfi();
-
-    if (cfi != null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(cfi),
-          action: SnackBarAction(
-            label: 'GO',
-            onPressed: () {
-              _epubReaderController.gotoEpubCfi(cfi);
-            },
-          ),
-        ),
-      );
-    }
-  }
+      ));
 }

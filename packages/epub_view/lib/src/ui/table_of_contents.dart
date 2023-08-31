@@ -8,11 +8,15 @@ class EpubViewTableOfContents extends StatelessWidget {
     this.padding,
     this.itemBuilder,
     this.loader,
+    this.backgroundColor,
+    this.textColor,
     Key? key,
   }) : super(key: key);
 
   final EdgeInsetsGeometry? padding;
   final EpubController controller;
+  final Color? backgroundColor;
+  final Color? textColor;
 
   final Widget Function(
     BuildContext context,
@@ -23,38 +27,45 @@ class EpubViewTableOfContents extends StatelessWidget {
   final Widget? loader;
 
   @override
-  Widget build(BuildContext context) =>
-      ValueListenableBuilder<List<EpubViewChapter>>(
-        valueListenable: controller.tableOfContentsListenable,
-        builder: (_, data, child) {
-          Widget content;
+  Widget build(BuildContext context) => Container(
+        color: backgroundColor,
+        child: ValueListenableBuilder<List<EpubViewChapter>>(
+          valueListenable: controller.tableOfContentsListenable,
+          builder: (_, data, child) {
+            Widget content;
 
-          if (data.isNotEmpty) {
-            content = ListView.builder(
-              padding: padding,
-              key: Key('$runtimeType.content'),
-              itemBuilder: (context, index) =>
-                  itemBuilder?.call(context, index, data[index], data.length) ??
-                  ListTile(
-                    title: Text(data[index].title!.trim()),
-                    onTap: () =>
-                        controller.scrollTo(index: data[index].startIndex),
-                  ),
-              itemCount: data.length,
-            );
-          } else {
-            content = KeyedSubtree(
-              key: Key('$runtimeType.loader'),
-              child: loader ?? const Center(child: CircularProgressIndicator()),
-            );
-          }
+            if (data.isNotEmpty) {
+              content = ListView.builder(
+                padding: padding,
+                key: Key('$runtimeType.content'),
+                itemBuilder: (context, index) =>
+                    itemBuilder?.call(
+                        context, index, data[index], data.length) ??
+                    ListTile(
+                      title: Text(
+                        data[index].title!.trim(),
+                        style: TextStyle(color: textColor),
+                      ),
+                      onTap: () =>
+                          controller.scrollTo(index: data[index].startIndex),
+                    ),
+                itemCount: data.length,
+              );
+            } else {
+              content = KeyedSubtree(
+                key: Key('$runtimeType.loader'),
+                child:
+                    loader ?? const Center(child: CircularProgressIndicator()),
+              );
+            }
 
-          return AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
-            transitionBuilder: (Widget child, Animation<double> animation) =>
-                FadeTransition(opacity: animation, child: child),
-            child: content,
-          );
-        },
+            return AnimatedSwitcher(
+              duration: const Duration(milliseconds: 250),
+              transitionBuilder: (Widget child, Animation<double> animation) =>
+                  FadeTransition(opacity: animation, child: child),
+              child: content,
+            );
+          },
+        ),
       );
 }
