@@ -22,7 +22,7 @@ const _minLeadingEdge = -0.05;
 typedef ExternalLinkPressed = void Function(String href);
 
 class EpubView extends StatefulWidget {
-  const EpubView({
+  EpubView({
     required this.controller,
     this.onExternalLinkPressed,
     this.onChapterChanged,
@@ -106,11 +106,11 @@ class _EpubViewState extends State<EpubView> {
       return true;
     }
     _chapters = parseChapters(_controller._document!);
-    _pages = parsePages(_chapters, MediaQuery.of(context).size.height);
     final parseParagraphsResult =
         parseParagraphs(_chapters, _controller._document!.Content);
     _paragraphs = parseParagraphsResult.flatParagraphs;
     _chapterIndexes.addAll(parseParagraphsResult.chapterIndexes);
+    _pages = parsePages(_chapters, 1000);
 
     _epubCfiReader = EpubCfiReader.parser(
       cfiInput: _controller.epubCfi,
@@ -119,6 +119,8 @@ class _EpubViewState extends State<EpubView> {
     );
     _itemPositionListener!.itemPositions.addListener(_changeListener);
     _controller.isBookLoaded.value = true;
+
+    _controller.pCount = _paragraphs.length;
 
     return true;
   }
@@ -392,9 +394,10 @@ class _EpubViewState extends State<EpubView> {
         itemPositionsListener: _itemPositionListener,
         scrollOffsetListener: _scrollOffsetListener,
         itemBuilder: (BuildContext context, int index) {
-          print('NUMBER OF PARAGRAPHS:  ' + _paragraphs.length.toString());
-          print('NUMBER OF PAGES:  ' + _pages.length.toString());
+          // print('NUMBER OF PARAGRAPHS:  ' + _paragraphs.length.toString());
+          // print('NUMBER OF PAGES:  ' + _pages.length.toString());
           // _itemPositionListener!.itemPositions.addListener(_onScroll);
+          print('PAGES LENGTH: ' + _pages.length.toString());
           return widget.builders.chapterBuilder(
             context,
             widget.builders,

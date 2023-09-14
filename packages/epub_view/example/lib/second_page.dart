@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:blurrycontainer/blurrycontainer.dart';
@@ -31,6 +32,7 @@ class _EpubPageState extends State<EpubPage> {
   double? textPadding = 1;
   String fontFamily = 'Roboto';
   double currentPage = 0;
+  int? paragrphsCount;
 
   double slider1 = 78;
 
@@ -53,8 +55,9 @@ class _EpubPageState extends State<EpubPage> {
 
   void _initializeEpubController() {
     _epubReaderController = EpubController(
-      document: EpubDocument.openAsset('assets/5.epub'),
+      document: EpubDocument.openAsset('assets/book_2.epub'),
       epubCfi: _lastViewedPosition, // Set the last viewed position
+      pCount: paragrphsCount,
     );
   }
 
@@ -149,6 +152,7 @@ class _EpubPageState extends State<EpubPage> {
                     : chosenColor == 1
                         ? Color(0xFFEFE0C9)
                         : Color(0xFF222222),
+                // paragraphsCount: paragrphsCount,
                 onChapterChanged: (chapter) {
                   currentPage = chapter!.paragraphNumber.toDouble();
                 },
@@ -199,128 +203,137 @@ class _EpubPageState extends State<EpubPage> {
                                       .withOpacity(0.1599999964237213),
                         ),
                         child: Container(
-                            height: 36,
-                            child: FlutterSlider(
-                              tooltip: FlutterSliderTooltip(
-                                  textStyle: TextStyle(
+                          height: 36,
+                          child: FlutterSlider(
+                            tooltip: FlutterSliderTooltip(
+                              custom: (value) => Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  color: chosenColor == 0
+                                      ? const Color(0xFF0144ED)
+                                      : chosenColor == 1
+                                          ? Colors.black
+                                          : Colors.white,
+                                ),
+                                child: Text(
+                                  (value as double).toInt().toString(),
+                                  style: TextStyle(
                                       color: chosenColor == 2
                                           ? Colors.black
                                           : Colors.white),
-                                  boxStyle: FlutterSliderTooltipBox(
-                                      decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: chosenColor == 0
-                                        ? const Color(0xFF0144ED)
-                                        : chosenColor == 1
-                                            ? Colors.black
-                                            : Colors.white,
-                                  ))),
-                              trackBar: const FlutterSliderTrackBar(
-                                  inactiveTrackBar:
-                                      BoxDecoration(color: Colors.transparent),
-                                  activeTrackBar:
-                                      BoxDecoration(color: Colors.transparent)),
-                              values: [currentPage.roundToDouble()],
-                              max: 73,
-                              min: 0,
-                              onDragging:
-                                  (handlerIndex, lowerValue, upperValue) {
-                                print('CURRENT PARAGRAPH' +
-                                    _epubReaderController.currentValueListenable
-                                        .value!.paragraphNumber
-                                        .toString());
-                                // // currentPage = handlerIndex;
-                                // // // _lowerValue = lowerValue;
-                                // // // _upperValue = upperValue;
-                                // // setState(() {
-                                // //   _epubReaderController.scrollTo(
-                                // //       index: currentPage,
-                                // //       duration: Duration(milliseconds: 30));
-                                // // });
-                                // currentPage = lowerValue;
-                                // // _lowerValue = lowerValue;
-                                // // _upperValue = upperValue;
-                                // setState(() {
-                                //   _epubReaderController.scrollTo(
-                                //       index: currentPage.round(),
-                                //       duration: Duration(milliseconds: 100));
-                                // });
-                                currentPage = lowerValue;
-                                print(lowerValue);
-                                setState(() {
-                                  _epubReaderController.jumpTo(
-                                    index: currentPage.round(),
-                                  );
-                                  print('HERE:' +
-                                      _epubReaderController
-                                          .currentValueListenable
-                                          .value!
-                                          .paragraphNumber
-                                          .toString());
-                                });
-                              },
-                              onDragStarted:
-                                  (handlerIndex, lowerValue, upperValue) {
-                                setState(() {
-                                  showThumbValue = false;
-                                });
-                              },
-                              onDragCompleted:
-                                  (handlerIndex, lowerValue, upperValue) {
-                                // currentPage = lowerValue;
-                                // _lowerValue = lowerValue;
-                                // _upperValue = upperValue;
-                                setState(() {
-                                  showThumbValue = true;
-
-                                  // _epubReaderController.scrollTo(
-                                  //     index: currentPage.round(),
-                                  //     duration: Duration(milliseconds: 250));
-                                });
-                                // setState(() {
-                                //   showThumbValue = true;
-                                // });
-                              },
-                              handler: FlutterSliderHandler(
-                                decoration: const BoxDecoration(),
-                                child: Material(
-                                  type: MaterialType.transparency,
-                                  child: Container(
-                                      height: 30,
-                                      width: 40,
-                                      decoration: ShapeDecoration(
-                                        color: chosenColor == 0
-                                            ? const Color(0xFF0144ED)
-                                            : chosenColor == 1
-                                                ? Colors.black
-                                                : Colors.white,
-                                        shape: RoundedRectangleBorder(
-                                          side: const BorderSide(
-                                            width: 1,
-                                            strokeAlign:
-                                                BorderSide.strokeAlignOutside,
-                                            color: Color(0x3D0144ED),
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(1000),
-                                        ),
-                                      ),
-                                      padding: const EdgeInsets.all(5),
-                                      child: Center(
-                                        child: showThumbValue == true
-                                            ? Text(
-                                                currentPage.round().toString(),
-                                                style: TextStyle(
-                                                    color: chosenColor == 2
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                    fontSize: 10),
-                                              )
-                                            : null,
-                                      )),
                                 ),
                               ),
-                            )),
+                              // textStyle: TextStyle(
+                              //     color: chosenColor == 2
+                              //         ? Colors.black
+                              //         : Colors.white),
+                              // boxStyle: FlutterSliderTooltipBox(
+                              //   decoration: BoxDecoration(
+                              //     borderRadius: BorderRadius.circular(16),
+                              //     color: chosenColor == 0
+                              //         ? const Color(0xFF0144ED)
+                              //         : chosenColor == 1
+                              //             ? Colors.black
+                              //             : Colors.white,
+                              //   ),
+                              // ),
+                            ),
+                            trackBar: const FlutterSliderTrackBar(
+                                inactiveTrackBar:
+                                    BoxDecoration(color: Colors.transparent),
+                                activeTrackBar:
+                                    BoxDecoration(color: Colors.transparent)),
+                            values: [currentPage.roundToDouble()],
+                            max:
+                                _epubReaderController.pCount?.toDouble() ?? 100,
+                            min: 0,
+                            onDragging: (handlerIndex, lowerValue, upperValue) {
+                              // print('CURRENT PARAGRAPH' +
+                              //     _epubReaderController.currentValueListenable
+                              //         .value!.paragraphNumber
+                              //         .toString());
+
+                              currentPage = lowerValue;
+                              print('PROGRESS HERE ' +
+                                  _epubReaderController.currentValue!.progress
+                                      .toString());
+                              // print(lowerValue);
+                              setState(() {
+                                _epubReaderController.jumpTo(
+                                  index: currentPage.round(),
+                                );
+                                // print('HERE:' +
+                                //     _epubReaderController
+                                //         .currentValueListenable
+                                //         .value!
+                                //         .paragraphNumber
+                                //         .toString());
+                              });
+                            },
+                            onDragStarted:
+                                (handlerIndex, lowerValue, upperValue) {
+                              setState(() {
+                                showThumbValue = false;
+                              });
+                            },
+                            onDragCompleted:
+                                (handlerIndex, lowerValue, upperValue) {
+                              // currentPage = lowerValue;
+                              // _lowerValue = lowerValue;
+                              // _upperValue = upperValue;
+                              setState(() {
+                                showThumbValue = true;
+
+                                // _epubReaderController.scrollTo(
+                                //     index: currentPage.round(),
+                                //     duration: Duration(milliseconds: 250));
+                              });
+                              // setState(() {
+                              //   showThumbValue = true;
+                              // });
+                            },
+                            handler: FlutterSliderHandler(
+                              decoration: const BoxDecoration(),
+                              child: Material(
+                                type: MaterialType.transparency,
+                                child: Container(
+                                    height: 30,
+                                    width: 40,
+                                    decoration: ShapeDecoration(
+                                      color: chosenColor == 0
+                                          ? const Color(0xFF0144ED)
+                                          : chosenColor == 1
+                                              ? Colors.black
+                                              : Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        side: const BorderSide(
+                                          width: 1,
+                                          strokeAlign:
+                                              BorderSide.strokeAlignOutside,
+                                          color: Color(0x3D0144ED),
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(1000),
+                                      ),
+                                    ),
+                                    padding: const EdgeInsets.all(5),
+                                    child: Center(
+                                      child: showThumbValue == true
+                                          ? Text(
+                                              currentPage.round().toString(),
+                                              style: TextStyle(
+                                                  color: chosenColor == 2
+                                                      ? Colors.black
+                                                      : Colors.white,
+                                                  fontSize: 10),
+                                            )
+                                          : null,
+                                    )),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 12),

@@ -81,9 +81,10 @@ ParseParagraphsResult parseParagraphs(
   return ParseParagraphsResult(paragraphs, chapterIndexes);
 }
 
-List<Pages> parsePages(List<EpubChapter> chapters, double pageSize) {
+List<Pages> parsePages(List<EpubChapter> chapters, int maxCharactersPerPage) {
   final List<Pages> pages = [];
   List<dom.Element> currentPage = [];
+  int currentCharacterCount = 0;
 
   for (final chapter in chapters) {
     final document = EpubCfiReader().chapterDocument(chapter);
@@ -93,16 +94,17 @@ List<Pages> parsePages(List<EpubChapter> chapters, double pageSize) {
 
       while (remainingElements.isNotEmpty) {
         final element = remainingElements.removeAt(0);
-        if (currentPage.isEmpty ||
-            currentPage.fold<double>(
-                        0, (acc, elm) => acc + elm.outerHtml.length) +
-                    element.outerHtml.length <=
-                pageSize) {
+        final elementText = element.text; // Get the text content of the element
+        final elementSize = elementText.length;
+
+        if (currentCharacterCount + elementSize <= maxCharactersPerPage) {
           currentPage.add(element);
+          currentCharacterCount += elementSize;
         } else {
           pages.add(Pages(List.from(currentPage)));
           currentPage.clear();
           currentPage.add(element);
+          currentCharacterCount = elementSize;
         }
       }
     }
